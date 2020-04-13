@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form action="{% url 'register' %}" method="POST">
+        
+        {% csrf_token %}
+
+        Mobile Number: <input type="text" name="username"><br>
+        Name: <input type="text" name="name"><br>
+        Village: <input type="text" name="village"><br>
+        Government Scheme: <select name="govtScheme">
+            <option value="PM-Kisan enrolled">PM-Kisan enrolled</option>
+            <option value="Not enrolled">Not enrolled</option>
+        </select><br>
+        Crop Insurance: <select name="cropInsurance">
+            <option value="PMFBY enrolled">PMFBY enrolled</option>
+            <option value="Not enrolled">Not enrolled</option>
+        </select><br>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

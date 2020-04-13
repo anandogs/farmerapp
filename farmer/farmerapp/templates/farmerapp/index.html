@@ -1,0 +1,19 @@
+{% extends 'farmerapp/base.html' %}
+
+{% block title %}
+
+Produce Summary
+
+{% endblock %}
+
+
+{% block body %}
+    <h1>Produce</h1>
+    <ul>
+        {% for prod in produce %}
+        <li>
+            {{prod}}
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
