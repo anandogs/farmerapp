@@ -43,7 +43,7 @@ class Farmer(models.Model):
     def __str__(self):
         return f"{self.farmer_name}: {self.phone_number}"
 
-class Produce(models.Model):
+class GrainProduce(models.Model):
     '''Produce / Sale table'''
     farmer = models.ForeignKey(Farmer, on_delete="DO_NOTHING")
     grain = models.CharField(max_length=64, default="")
@@ -51,25 +51,60 @@ class Produce(models.Model):
     grain_unit = models.CharField(max_length=5, default="")
     grain_price = models.IntegerField(default=0)
     grain_update_date = models.DateTimeField(default=now)
+    grain_comment = models.TextField(default="")
+    
+    class Meta:
+        verbose_name_plural = "Grain Produce"
+
+    
+    def __str__(self):
+        return f"{self.grain}"
+
+class OilseedProduce(models.Model):
+    '''Produce / Sale table'''
+    farmer = models.ForeignKey(Farmer, on_delete="DO_NOTHING")
     oilseed = models.CharField(max_length=64, default="")
     oilseed_qty = models.IntegerField(default=0)
     oilseed_unit = models.CharField(max_length=5, default="")
     oilseed_price = models.IntegerField(default=0)
     oilseed_update_date = models.DateTimeField(default=now)
+    oilseed_comment = models.TextField(default="")
+    
+    class Meta:
+        verbose_name_plural = "Oilseed Produce"
+
+    
+    def __str__(self):
+        return f"{self.oilseed}"
+
+class VegetableProduce(models.Model):
+    '''Produce / Sale table'''
+    farmer = models.ForeignKey(Farmer, on_delete="DO_NOTHING")
     vegetable = models.CharField(max_length=64, default="")
     vegetable_qty = models.IntegerField(default=0)
     vegetable_unit = models.CharField(max_length=5, default="")
     vegetable_price = models.IntegerField(default=0)
     vegetable_update_date = models.DateTimeField(default=now)
+    vegetable_comment = models.TextField(default="")
+    
+    class Meta:
+        verbose_name_plural = "Vegetable Produce"
+
+    def __str__(self):
+        return f"{self.vegetable}"
+
+class FruitProduce(models.Model):
+    '''Produce / Sale table'''
+    farmer = models.ForeignKey(Farmer, on_delete="DO_NOTHING")
     fruit = models.CharField(max_length=64, default="")
     fruit_qty = models.IntegerField(default=0)
     fruit_unit = models.CharField(max_length=5, default="")
     fruit_price = models.IntegerField(default=0)
     fruit_update_date = models.DateTimeField(default=now)
-    comment = models.TextField(default="")
-
+    fruit_comment = models.TextField(default="")
+    
     class Meta:
-        verbose_name_plural = "Produce"
+        verbose_name_plural = "Fruit Produce"
 
     def __str__(self):
-        return f"{self.grain}{self.oilseed}{self.vegetable}{self.fruit}"
+        return f"{self.fruit}"
