@@ -45,7 +45,7 @@ class Farmer(models.Model):
 
 class GrainProduce(models.Model):
     '''Produce / Sale table'''
-    farmer = models.ForeignKey(Farmer, on_delete="DO_NOTHING")
+    farmer = models.ForeignKey(Farmer, on_delete=models.DO_NOTHING)
     grain = models.CharField(max_length=64, default="")
     grain_qty = models.IntegerField(default=0)
     grain_unit = models.CharField(max_length=5, default="")
@@ -62,7 +62,7 @@ class GrainProduce(models.Model):
 
 class OilseedProduce(models.Model):
     '''Produce / Sale table'''
-    farmer = models.ForeignKey(Farmer, on_delete="DO_NOTHING")
+    farmer = models.ForeignKey(Farmer, on_delete=models.DO_NOTHING)
     oilseed = models.CharField(max_length=64, default="")
     oilseed_qty = models.IntegerField(default=0)
     oilseed_unit = models.CharField(max_length=5, default="")
@@ -79,7 +79,7 @@ class OilseedProduce(models.Model):
 
 class VegetableProduce(models.Model):
     '''Produce / Sale table'''
-    farmer = models.ForeignKey(Farmer, on_delete="DO_NOTHING")
+    farmer = models.ForeignKey(Farmer, on_delete=models.DO_NOTHING)
     vegetable = models.CharField(max_length=64, default="")
     vegetable_qty = models.IntegerField(default=0)
     vegetable_unit = models.CharField(max_length=5, default="")
@@ -95,7 +95,7 @@ class VegetableProduce(models.Model):
 
 class FruitProduce(models.Model):
     '''Produce / Sale table'''
-    farmer = models.ForeignKey(Farmer, on_delete="DO_NOTHING")
+    farmer = models.ForeignKey(Farmer, on_delete=models.DO_NOTHING)
     fruit = models.CharField(max_length=64, default="")
     fruit_qty = models.IntegerField(default=0)
     fruit_unit = models.CharField(max_length=5, default="")
