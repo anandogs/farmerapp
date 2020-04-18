@@ -16,7 +16,13 @@ import django_heroku
 
 #https://medium.com/@BennettGarner/deploying-django-to-heroku-connecting-heroku-postgres-fcc960d290d1
 import dj_database_url
-import dotenv
+
+import warnings
+from django.utils.deprecation import RemovedInDjango30Warning
+
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore", RemovedInDjango30Warning)
+    import dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
