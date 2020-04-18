@@ -1,0 +1,76 @@
+{% extends 'farmerapp/base.html' %}
+
+{% block title %}
+
+Register
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>Register</h1>
+
+    <div class="container">
+
+        <form action="{% url 'register' %}" method="POST">
+            
+            {% csrf_token %}
+            <div class="row align-items-center">
+            <div class="col-sm">Mobile Number</div> <div class="col-sm"><input type="text" name="username"></div>
+            </div>
+
+            <div class="row align-items-center">
+            
+                <div class="col-sm">Name</div> 
+                <div class="col-sm"><input type="text" name="name"></div>
+            
+            </div>
+
+            <div class="row align-items-center">
+            
+                <div class="col-sm">Village</div> 
+                <div class="col-sm"><input type="text" name="village"></div>
+            
+            </div>
+    
+            <div class="row align-items-center">
+            
+                <div class="col-sm">Government Scheme</div> 
+            
+                <div class="col-sm">
+
+                    <select name="govtScheme">
+                        <option value="PM-Kisan enrolled">PM-Kisan enrolled</option>
+                        <option value="Not enrolled">Not enrolled</option>
+                    </select>
+
+                </div>
+            
+            </div>
+          
+            <div class="row align-items-center">
+            
+                <div class="col-sm">Crop Insurance</div> 
+            
+                <div class="col-sm">
+
+                    <select name="cropInsurance">
+                        <option value="PMFBY enrolled">PMFBY enrolled</option>
+                        <option value="Not enrolled">Not enrolled</option>
+                    </select>
+
+                </div>
+            
+            </div>
+
+            <div class="row align-items-center">
+            
+
+                <div class="col-sm button-gap"><button>Submit</button></div> 
+            
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}

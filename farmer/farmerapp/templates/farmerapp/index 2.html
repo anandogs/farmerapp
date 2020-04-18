@@ -1,0 +1,170 @@
+{% extends 'farmerapp/base.html' %}
+
+{% block title %}
+
+Produce Summary
+
+{% endblock %}
+
+
+{% block body %}
+    <h1>Produce</h1>
+
+    <h2>Grains</h2>
+    <br>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Village</th>
+                <th scope="col">Number</th>
+                <th scope="col">Grain</th>
+                <th scope="col">Price</th>
+                <th scope="col">Available to buy</th>
+                <th scope="col">Updated on</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Govt Schemes</th>
+                <th scope="col">Crop Insurance</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for grain in grains %}
+            <tr>
+                <td>{{grain.farmer.farmer_name}}</td>
+                <td>{{grain.farmer.village}}</td>
+                <td>{{grain.farmer.phone_number}}</td>
+                <td>{{grain.grain}}</td>
+                <td>{{grain.grain_price}}/{{grain.grain_unit}}</td>
+                <td>{{grain.grain_qty}}</td>
+                <td>{{grain.grain_update_date}}</td>
+                <td>{{grain.grain_comment}}</td>
+                <td>{{grain.farmer.govt_scheme_enroll}}</td>
+                <td>{{grain.farmer.crop_insurance}}</td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+
+    </table>
+    <br>
+    <h2>Oilseeds</h2>
+    <br>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Village</th>
+                <th scope="col">Number</th>
+                <th scope="col">Oilseed</th>
+                <th scope="col">Price</th>
+                <th scope="col">Available to buy</th>
+                <th scope="col">Updated on</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Govt Schemes</th>
+                <th scope="col">Crop Insurance</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for oilseed in oilseeds %}
+            <tr>
+                <td>{{oilseed.farmer.farmer_name}}</td>
+                <td>{{oilseed.farmer.village}}</td>
+                <td>{{oilseed.farmer.phone_number}}</td>
+                <td>{{oilseed.oilseed}}</td>
+                <td>{{oilseed.oilseed_price}}/{{oilseed.oilseed_unit}}</td>
+                <td>{{oilseed.oilseed_qty}}</td>
+                <td>{{oilseed.oilseed_update_date}}</td>
+                <td>{{oilseed.oilseed_comment}}</td>
+                <td>{{oilseed.farmer.govt_scheme_enroll}}</td>
+                <td>{{oilseed.farmer.crop_insurance}}</td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+
+    </table>
+    <br>
+    <h2>Vegetables</h2>
+    <br>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Village</th>
+                <th scope="col">Number</th>
+                <th scope="col">Vegetable</th>
+                <th scope="col">Price</th>
+                <th scope="col">Available to buy</th>
+                <th scope="col">Updated on</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Govt Schemes</th>
+                <th scope="col">Crop Insurance</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for vegetable in vegetables %}
+            <tr>
+                <td>{{vegetable.farmer.farmer_name}}</td>
+                <td>{{vegetable.farmer.village}}</td>
+                <td>{{vegetable.farmer.phone_number}}</td>
+                <td>{{vegetable.vegetable}}</td>
+                <td>{{vegetable.vegetable_price}}/{{vegetable.vegetable_unit}}</td>
+                <td>{{vegetable.vegetable_qty}}</td>
+                <td>{{vegetable.vegetable_update_date}}</td>
+                <td>{{vegetable.vegetable_comment}}</td>
+                <td>{{vegetable.farmer.govt_scheme_enroll}}</td>
+                <td>{{vegetable.farmer.crop_insurance}}</td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+
+    </table>
+    
+        <br>
+        <h2>Fruits</h2>
+        <br>
+    
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Village</th>
+                    <th scope="col">Number</th>
+                    <th scope="col">Fruit</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Available to buy</th>
+                    <th scope="col">Updated on</th>
+                    <th scope="col">Comment</th>
+                    <th scope="col">Govt Schemes</th>
+                    <th scope="col">Crop Insurance</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for fruit in fruits %}
+                <tr>
+                    <td>{{fruit.farmer.farmer_name}}</td>
+                    <td>{{fruit.farmer.village}}</td>
+                    <td>{{fruit.farmer.phone_number}}</td>
+                    <td>{{fruit.fruit}}</td>
+                    <td>{{fruit.fruit_price}}/{{fruit.fruit_unit}}</td>
+                    <td>{{fruit.fruit_qty}}</td>
+                    <td>{{fruit.fruit_update_date}}</td>
+                    <td>{{fruit.fruit_comment}}</td>
+                    <td>{{fruit.farmer.govt_scheme_enroll}}</td>
+                    <td>{{fruit.farmer.crop_insurance}}</td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+
+    </table>
+
+{% endblock %}
