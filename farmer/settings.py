@@ -83,8 +83,6 @@ WSGI_APPLICATION = 'farmer.wsgi.application'
 #    }
 #}
 
-#DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-#This didn't work (I got it from Heroku's documentation, yet it gave the error 'DATABASES' is not defined')
 
 #https://stackoverflow.com/questions/27985368/heroku-databases-is-not-defined
 DATABASES = { 'default': dj_database_url.config(conn_max_age=600, ssl_require=True)}
@@ -130,3 +128,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 django_heroku.settings(locals())
+#del DATABASES['default']['OPTIONS']['sslmode']
