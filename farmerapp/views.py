@@ -182,7 +182,7 @@ def register(request):
             crop_insurance = request.POST["cropInsurance"]
 
             Farmer.objects.create(farmer_name=farmer_name, village=village, phone_number=int(username), govt_scheme_enroll=govt_scheme, crop_insurance=crop_insurance)
-            messages(request, f"Hello {farmer_name}! | Vaṇakkam! | வணக்கம்")
+            messages.success(request, f"Hello {farmer_name}! | Vaṇakkam! | வணக்கம்")
             return HttpResponseRedirect(reverse('saleform'))
     return render(request, "farmerapp/register.html") 
 
