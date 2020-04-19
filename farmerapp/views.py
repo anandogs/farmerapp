@@ -163,20 +163,27 @@ def register(request):
         password = username
         email = "test@test.com"
 
-        User.objects.create_user(username, email, password)
-
         user = authenticate(request, username=username, password = password)
-        login(request, user)
 
-        #farmer details
-        farmer_name = request.POST["name"]
-        village = request.POST["village"]
-        govt_scheme = request.POST["govtScheme"]
-        crop_insurance = request.POST["cropInsurance"]
+        if user is not None:
+            messages.success(request, 'User already exists. Please use another number.')
+            return HttpResponseRedirect(reverse('register'))
+        
+        else:
 
-        Farmer.objects.create(farmer_name=farmer_name, village=village, phone_number=int(username), govt_scheme_enroll=govt_scheme, crop_insurance=crop_insurance)
+            User.objects.create_user(username, email, password)
+            user = authenticate(request, username=username, password = password)
+            login(request, user)
 
-        return HttpResponseRedirect(reverse('saleform'))
+            #farmer details
+            farmer_name = request.POST["name"]
+            village = request.POST["village"]
+            govt_scheme = request.POST["govtScheme"]
+            crop_insurance = request.POST["cropInsurance"]
+
+            Farmer.objects.create(farmer_name=farmer_name, village=village, phone_number=int(username), govt_scheme_enroll=govt_scheme, crop_insurance=crop_insurance)
+            messages(request, f"Hello {farmer_name}! | Vaṇakkam! | வணக்கம்")
+            return HttpResponseRedirect(reverse('saleform'))
     return render(request, "farmerapp/register.html") 
 
 def login_view(request):
@@ -189,6 +196,10 @@ def login_view(request):
         
         if user is not None:
             login(request,user)
+            phone_number = int(request.user.username)
+            farmer = Farmer.objects.get(phone_number = phone_number)
+            farmer_name = farmer.farmer_name
+            messages.success(request, f"Hello {farmer_name}! | Vaṇakkam! | வணக்கம்!")
             return HttpResponseRedirect(reverse('saleform'))
         else:
             messages.success(request, 'This phone number does not exist in our Database!')
