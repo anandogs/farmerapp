@@ -192,7 +192,7 @@ def login_view(request):
 
             return HttpResponseRedirect(reverse('saleform'))
         else:
-            messages.success(request, 'Sorry, this page is for admins only!')
+            messages.success(request, 'This phone number does not exist in our Database!')
             return HttpResponseRedirect(reverse('login_view'))
     
     return render(request, "farmerapp/login_view.html")
