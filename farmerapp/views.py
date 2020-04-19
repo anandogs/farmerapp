@@ -189,7 +189,6 @@ def login_view(request):
         
         if user is not None:
             login(request,user)
-
             return HttpResponseRedirect(reverse('saleform'))
         else:
             messages.success(request, 'This phone number does not exist in our Database!')
