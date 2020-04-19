@@ -211,7 +211,7 @@ def admin_view(request):
 
     if request.method == "POST":
         username = request.POST['username']
-        username = request.POST['password']
+        password = request.POST['password']
         
         user = authenticate(request, username = username, password = password)
         
