@@ -184,9 +184,15 @@ def login_view(request):
     if request.method == "POST":
         username = request.POST['username']
         password = username
+        
         user = authenticate(request, username = username, password = password)
-        login(request,user)
+        
+        if user is not None:
+            login(request,user)
 
-        return HttpResponseRedirect(reverse('saleform'))
+            return HttpResponseRedirect(reverse('saleform'))
+        else:
+            messages.success(request, 'Sorry, this page is for admins only!')
+            return HttpResponseRedirect(reverse('login_view'))
     
     return render(request, "farmerapp/login_view.html")
