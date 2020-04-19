@@ -13,8 +13,8 @@ from .models import Grain, Oilseed, Vegetable, Fruit, Farmer, GrainProduce, Oils
 @login_required(login_url='login_view')
 def index(request):
     
-    #check if user is admin (ie anandoghose)
-    if not request.user.username == 'anandoghose':
+    #check if user is admin (enter admin number here)
+    if not request.user.username == '9486623278':
         messages.success(request, 'Sorry, this page is for admins only!')
         
         return HttpResponseRedirect(reverse('login_view'))
@@ -206,3 +206,20 @@ def login_view(request):
             return HttpResponseRedirect(reverse('login_view'))
     
     return render(request, "farmerapp/login_view.html")
+
+def admin_view(request):
+
+    if request.method == "POST":
+        username = request.POST['username']
+        username = request.POST['password']
+        
+        user = authenticate(request, username = username, password = password)
+        
+        if user is not None:
+            login(request,user)
+            return HttpResponseRedirect(reverse('index'))
+        else:
+            messages.success(request, 'Sorry, username or password is incorrect!')
+            return HttpResponseRedirect(reverse('admin_view'))
+    
+    return render(request, "farmerapp/admin_view.html")

@@ -1,0 +1,37 @@
+{% extends 'farmerapp/base.html' %}
+
+{% block title %}
+
+Admin Login
+
+{% endblock %}
+
+{% block body %}
+    <h1>Admin Login</h1>
+    
+    <form action="{% url 'login_view' %}" method="POST">
+        {% csrf_token %}
+
+    <div class="row align-items-center">
+        
+        <div class="col-sm">Mobile Number</div> 
+        <div class="col-sm"><input type="text" name="username"></div>
+    
+    </div>
+    
+    <div class="row align-items-center">
+        
+        <div class="col-sm">Password</div> 
+        <div class="col-sm"><input type="password" name="password"></div>
+    
+    </div>
+
+    <div class="row align-items-center">
+        
+        <div class="col-sm button-gap"><button>Submit</button></div> 
+    
+    </div>
+    
+    
+</form>
+{% endblock %}
